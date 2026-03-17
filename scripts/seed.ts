@@ -9,7 +9,7 @@ if (!MONGODB_URI) {
 }
 async function seed(): Promise<void> {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI as string);
     console.error("[seed] Connected to MongoDB");
 
     await Product.deleteMany({});
