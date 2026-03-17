@@ -2,8 +2,11 @@ import mongoose from "mongoose";
 import Product from "../models/Product";
 import { products } from "../data/products";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://userss:userss123@letsago.upst2ke.mongodb.net/";
+const MONGODB_URI = process.env.MONGODB_URI;
 
+if (!MONGODB_URI) {
+  throw new Error("Please define the MONGODB_URI environment variable inside .env.local");
+}
 async function seed(): Promise<void> {
   try {
     await mongoose.connect(MONGODB_URI);
