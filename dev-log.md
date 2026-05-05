@@ -6,3 +6,5 @@ Running notes on ongoing development work.
 - fixed responsive layout issues on mobile viewport
 ### 2026-05-04
 - fixed console warnings and deprecated API calls
+### 2026-05-05
+- refactored component structure for better reusability
