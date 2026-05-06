@@ -8,3 +8,5 @@ Running notes on ongoing development work.
 - fixed console warnings and deprecated API calls
 ### 2026-05-05
 - refactored component structure for better reusability
+### 2026-05-06
+- updated environment configuration for staging
