@@ -12,3 +12,5 @@ Running notes on ongoing development work.
 - updated environment configuration for staging
 ### 2026-05-07
 - improved TypeScript types and interfaces
+### 2026-05-08
+- refactored component structure for better reusability
