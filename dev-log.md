@@ -14,3 +14,5 @@ Running notes on ongoing development work.
 - improved TypeScript types and interfaces
 ### 2026-05-08
 - refactored component structure for better reusability
+### 2026-05-11
+- updated dependencies to latest stable versions
