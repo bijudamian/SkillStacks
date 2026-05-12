@@ -18,3 +18,4 @@ Running notes on ongoing development work.
 - updated dependencies to latest stable versions
 ### 2026-05-12
 - cleaned up unused imports and dead code
+- refactored component structure for better reusability
