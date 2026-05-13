@@ -19,3 +19,5 @@ Running notes on ongoing development work.
 ### 2026-05-12
 - cleaned up unused imports and dead code
 - refactored component structure for better reusability
+### 2026-05-13
+- fixed console warnings and deprecated API calls
