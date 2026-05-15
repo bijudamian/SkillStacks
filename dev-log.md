@@ -21,3 +21,5 @@ Running notes on ongoing development work.
 - refactored component structure for better reusability
 ### 2026-05-13
 - fixed console warnings and deprecated API calls
+### 2026-05-15
+- updated README with setup and usage instructions
