@@ -23,3 +23,5 @@ Running notes on ongoing development work.
 - fixed console warnings and deprecated API calls
 ### 2026-05-15
 - updated README with setup and usage instructions
+### 2026-05-16
+- improved form validation and user feedback
