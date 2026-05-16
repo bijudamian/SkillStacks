@@ -25,3 +25,4 @@ Running notes on ongoing development work.
 - updated README with setup and usage instructions
 ### 2026-05-16
 - improved form validation and user feedback
+- fixed race condition in concurrent state updates
