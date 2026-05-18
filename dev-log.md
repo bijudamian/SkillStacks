@@ -28,3 +28,5 @@ Running notes on ongoing development work.
 - fixed race condition in concurrent state updates
 ### 2026-05-17
 - optimised database queries for faster load times
+### 2026-05-18
+- fixed minor UI inconsistencies across breakpoints
