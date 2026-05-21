@@ -32,3 +32,4 @@ Running notes on ongoing development work.
 - fixed minor UI inconsistencies across breakpoints
 ### 2026-05-21
 - updated colour tokens and design system
+- refactored component structure for better reusability
