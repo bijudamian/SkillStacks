@@ -30,3 +30,5 @@ Running notes on ongoing development work.
 - optimised database queries for faster load times
 ### 2026-05-18
 - fixed minor UI inconsistencies across breakpoints
+### 2026-05-21
+- updated colour tokens and design system
