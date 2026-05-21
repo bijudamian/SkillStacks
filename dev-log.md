@@ -33,3 +33,4 @@ Running notes on ongoing development work.
 ### 2026-05-21
 - updated colour tokens and design system
 - refactored component structure for better reusability
+- updated README with setup and usage instructions
