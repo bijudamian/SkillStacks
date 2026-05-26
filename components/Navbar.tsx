@@ -3,11 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 
+import { usePathname, useRouter } from "next/navigation";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToSection = (id: string) => {
     setIsOpen(false);
+    if (pathname !== "/") {
+      router.push(`/#${id}`);
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
