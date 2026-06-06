@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VoiceAssistant from "@/components/VoiceAssistant";
+import FlashSaleBanner from "@/components/FlashSaleBanner";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,10 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} font-sans bg-dark text-white antialiased`}
+        className={`${inter.variable} font-sans bg-dark text-white antialiased flex flex-col min-h-screen`}
       >
+        <FlashSaleBanner />
         <Navbar />
-        <main className="min-h-screen pt-16">{children}</main>
+        <main className="flex-grow pt-16">{children}</main>
         <Footer />
         <VoiceAssistant />
       </body>
