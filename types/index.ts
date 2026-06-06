@@ -11,6 +11,7 @@ export interface IProduct {
   currency: "usd" | "inr";
   pdfUrl: string;
   coverImage: string;
+  contentSnippet?: string;
   category: "investing" | "fitness" | "productivity" | "youtube";
   featured: boolean;
   createdAt?: Date;
