@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Zap } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,13 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/roadmap"
+              className="text-text-secondary hover:text-white transition-colors text-sm font-medium flex items-center gap-1"
+            >
+              <Zap className="w-4 h-4" /> Roadmaps
+            </Link>
             <button
               onClick={() => scrollToSection("hero")}
               className="text-text-secondary hover:text-white transition-colors text-sm font-medium"
