@@ -25,13 +25,14 @@ export default function OneClickUpsell({ purchasedSlug }: { purchasedSlug: strin
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/subscribe", {
+      const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          priceId: upsellProduct.priceId,
+          slug: upsellProduct.slug,
+          isUpsell: true,
         }),
       });
 

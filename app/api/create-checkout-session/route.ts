@@ -8,7 +8,7 @@ import type { IProduct } from "@/types";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { slug } = body as { slug: string };
+    const { slug, isUpsell } = body as { slug: string; isUpsell?: boolean };
 
     if (!slug) {
       return NextResponse.json(
@@ -45,6 +45,8 @@ export async function POST(request: NextRequest) {
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
+    const finalPrice = isUpsell ? Math.floor(product.price * 0.5) : product.price;
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: [
@@ -52,10 +54,10 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: product.currency,
             product_data: {
-              name: product.title,
+              name: isUpsell ? `${product.title} (50% OFF UPSELL)` : product.title,
               description: product.tagline,
             },
-            unit_amount: product.price,
+            unit_amount: finalPrice,
           },
           quantity: 1,
         },
