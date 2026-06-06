@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { IProduct } from "@/types";
 
 interface ProductCardProps {
@@ -21,7 +24,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/product/${product.slug}`} className="group block">
-      <div className="relative bg-surface rounded-2xl border border-white/5 overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+      <motion.div
+        whileHover={{ y: -8, scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="relative bg-surface rounded-2xl border border-white/5 overflow-hidden transition-colors hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10"
+      >
         {/* Cover Image */}
         <div className="relative h-52 overflow-hidden">
           <Image
@@ -64,7 +72,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 }

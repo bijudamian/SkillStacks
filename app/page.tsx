@@ -1,6 +1,9 @@
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 import Link from "next/link";
+import { FadeIn } from "@/components/FadeIn";
+import { Zap, BookOpen, Download } from "lucide-react";
+import Newsletter from "@/components/Newsletter";
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
@@ -74,41 +77,45 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-primary text-xs font-semibold uppercase tracking-wider">
-              New Playbooks Available
-            </span>
-          </div>
+          <FadeIn>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 mb-8">
+              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-wider">
+                New Playbooks Available
+              </span>
+            </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
-            Stop Learning.
-            <br />
-            <span className="bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent">
-              Start Executing.
-            </span>
-          </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight">
+              Stop Learning.
+              <br />
+              <span className="bg-gradient-to-r from-primary via-purple-400 to-secondary bg-clip-text text-transparent">
+                Start Executing.
+              </span>
+            </h1>
+          </FadeIn>
 
-          <p className="mt-6 text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Premium action playbooks that transform knowledge into results.
-            Each guide is a step-by-step system — not another course you&apos;ll never finish.
-          </p>
+          <FadeIn delay={0.2}>
+            <p className="mt-6 text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+              Premium action playbooks that transform knowledge into results.
+              Each guide is a step-by-step system — not another course you&apos;ll never finish.
+            </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="#products"
-              className="bg-accent hover:bg-accent/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-0.5"
-            >
-              Browse Playbooks →
-            </Link>
-            <Link
-              href="#features"
-              className="text-text-secondary hover:text-white font-medium px-8 py-4 rounded-xl text-lg transition-colors border border-white/10 hover:border-white/20"
-            >
-              Learn More
-            </Link>
-          </div>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="#products"
+                className="bg-accent hover:bg-accent/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-0.5"
+              >
+                Browse Playbooks →
+              </Link>
+              <Link
+                href="#features"
+                className="text-text-secondary hover:text-white font-medium px-8 py-4 rounded-xl text-lg transition-colors border border-white/10 hover:border-white/20"
+              >
+                Learn More
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -135,15 +142,17 @@ export default function HomePage() {
       {/* ========== PRODUCTS GRID ========== */}
       <section id="products" className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Our Action Playbooks
-            </h2>
-            <p className="text-text-secondary mt-4 max-w-xl mx-auto">
-              Each playbook is a complete action system — not generic advice.
-              Pick one and start executing today.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">
+                Our Action Playbooks
+              </h2>
+              <p className="text-text-secondary mt-4 max-w-xl mx-auto">
+                Each playbook is a complete action system — not generic advice.
+                Pick one and start executing today.
+              </p>
+            </div>
+          </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
@@ -167,82 +176,52 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-primary/20 transition-all duration-500">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-8 h-8 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+            <FadeIn delay={0.1}>
+              <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-primary/20 transition-all duration-500">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-3">
+                  Action-First Approach
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  No fluff, no filler. Every page is designed to move you from
+                  &quot;I know this&quot; to &quot;I&apos;ve done this.&quot; Execute from day one.
+                </p>
               </div>
-              <h3 className="text-white font-bold text-lg mb-3">
-                Action-First Approach
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                No fluff, no filler. Every page is designed to move you from
-                &quot;I know this&quot; to &quot;I&apos;ve done this.&quot; Execute from day one.
-              </p>
-            </div>
+            </FadeIn>
 
             {/* Feature 2 */}
-            <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-secondary/20 transition-all duration-500">
-              <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-8 h-8 text-secondary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                  />
-                </svg>
+            <FadeIn delay={0.2}>
+              <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-secondary/20 transition-all duration-500">
+                <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <BookOpen className="w-8 h-8 text-secondary" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-3">
+                  Complete Systems
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Tools, templates, checklists, and exact steps — everything you
+                  need in one PDF. No hunting for missing pieces.
+                </p>
               </div>
-              <h3 className="text-white font-bold text-lg mb-3">
-                Complete Systems
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Tools, templates, checklists, and exact steps — everything you
-                need in one PDF. No hunting for missing pieces.
-              </p>
-            </div>
+            </FadeIn>
 
             {/* Feature 3 */}
-            <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-accent/20 transition-all duration-500">
-              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+            <FadeIn delay={0.3}>
+              <div className="bg-surface rounded-2xl border border-white/5 p-8 text-center group hover:border-accent/20 transition-all duration-500">
+                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Download className="w-8 h-8 text-accent" />
+                </div>
+                <h3 className="text-white font-bold text-lg mb-3">
+                  Instant Access
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Pay once, download immediately. No subscriptions, no
+                  drip-feeding content. The full playbook is yours forever.
+                </p>
               </div>
-              <h3 className="text-white font-bold text-lg mb-3">
-                Instant Access
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Pay once, download immediately. No subscriptions, no
-                drip-feeding content. The full playbook is yours forever.
-              </p>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -270,6 +249,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ========== NEWSLETTER ========== */}
+      <Newsletter />
 
       {/* ========== FINAL CTA ========== */}
       <section className="py-20 sm:py-28 relative overflow-hidden">
