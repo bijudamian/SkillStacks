@@ -155,6 +155,26 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
                 </svg>
                 Listen to Audiobook
               </Link>
+
+              <Link
+                href={`/quiz/${sessionId}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent/20 hover:bg-accent/30 text-accent font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 border border-accent/30 hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                Knowledge Check
+              </Link>
             </div>
           )}
 
