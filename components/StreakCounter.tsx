@@ -53,8 +53,8 @@ export default function StreakCounter() {
   if (!mounted || streak === 0) return null;
 
   return (
-    <div className="flex items-center gap-1.5 bg-surface border border-white/10 px-3 py-1.5 rounded-full" title={\`\${streak} day streak!\`}>
-      <Flame className={\`w-4 h-4 \${streak > 2 ? 'text-orange-500 fill-orange-500 animate-pulse' : 'text-orange-400'}\`} />
+    <div className="flex items-center gap-1.5 bg-surface border border-white/10 px-3 py-1.5 rounded-full" title={`${streak} day streak!`}>
+      <Flame className={`w-4 h-4 ${streak > 2 ? 'text-orange-500 fill-orange-500 animate-pulse' : 'text-orange-400'}`} />
       <span className="text-sm font-bold text-white">{streak}</span>
     </div>
   );

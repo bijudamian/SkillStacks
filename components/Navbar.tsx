@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, Zap } from "lucide-react";
+import StreakCounter from "./StreakCounter";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +37,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
+            <StreakCounter />
             <Link
               href="/roadmap"
               className="text-text-secondary hover:text-white transition-colors text-sm font-medium flex items-center gap-1"
