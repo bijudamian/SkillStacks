@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { products } from "@/data/products";
+import OneClickUpsell from "@/components/OneClickUpsell";
 
 export const metadata: Metadata = {
   title: "Payment Successful — SkillStacks",
@@ -57,179 +58,186 @@ export default async function SuccessPage({ searchParams }: SuccessPageProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-20">
-      <div className="max-w-lg mx-auto px-4 text-center">
-        {/* Success Animation */}
-        <div className="mb-8">
-          <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
-            <svg
-              className="w-12 h-12 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+      <div className="max-w-5xl w-full mx-auto px-4 flex flex-col items-center">
+        <div className="max-w-xl w-full text-center">
+          {/* Success Animation */}
+          <div className="mb-8">
+            <div className="w-24 h-24 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+              <svg
+                className="w-12 h-12 text-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">
+            Payment Successful! 🎉
+          </h1>
+
+          <p className="text-text-secondary text-lg mb-2">
+            Thank you for purchasing
+          </p>
+          <p className="text-primary font-bold text-xl mb-8">{productTitle}</p>
+
+          <div className="bg-surface rounded-2xl border border-white/5 p-8 space-y-6">
+            <p className="text-text-secondary text-sm">
+              Your playbook is ready for download. Click the button below to get
+              your PDF.
+            </p>
+
+            {/* Download Button */}
+            {pdfUrl && (
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
+                <a
+                  href={pdfUrl}
+                  download
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-0.5"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  📥 Download PDF
+                </a>
+
+                <Link
+                  href={`/tutor/${sessionId}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                    />
+                  </svg>
+                  Chat with AI Tutor
+                </Link>
+
+                <Link
+                  href={`/listen/${sessionId}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-secondary/25 hover:-translate-y-0.5"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                    />
+                  </svg>
+                  Listen to Audiobook
+                </Link>
+
+                <Link
+                  href={`/quiz/${sessionId}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent/20 hover:bg-accent/30 text-accent font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 border border-accent/30 hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  Knowledge Check
+                </Link>
+
+                <Link
+                  href={`/flashcards/${sessionId}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    />
+                  </svg>
+                  Review Flashcards
+                </Link>
+
+                <Link
+                  href={`/checklist/${sessionId}`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 border border-white/10"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                    />
+                  </svg>
+                  Action Checklist
+                </Link>
+              </div>
+            )}
+
+            {!pdfUrl && (
+              <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4">
+                <p className="text-yellow-400 text-sm">
+                  Unable to determine the download link. Please contact support
+                  with your session ID: <code className="text-xs">{sessionId}</code>
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">
-          Payment Successful! 🎉
-        </h1>
-
-        <p className="text-text-secondary text-lg mb-2">
-          Thank you for purchasing
-        </p>
-        <p className="text-primary font-bold text-xl mb-8">{productTitle}</p>
-
-        <div className="bg-surface rounded-2xl border border-white/5 p-8 space-y-6">
-          <p className="text-text-secondary text-sm">
-            Your playbook is ready for download. Click the button below to get
-            your PDF.
-          </p>
-
-          {/* Download Button */}
-          {pdfUrl && (
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={pdfUrl}
-                download
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/25 hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                📥 Download PDF
-              </a>
-
-              <Link
-                href={`/tutor/${sessionId}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                  />
-                </svg>
-                Chat with AI Tutor
-              </Link>
-
-              <Link
-                href={`/listen/${sessionId}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-secondary hover:bg-secondary/90 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:shadow-secondary/25 hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                  />
-                </svg>
-                Listen to Audiobook
-              </Link>
-
-              <Link
-                href={`/quiz/${sessionId}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-accent/20 hover:bg-accent/30 text-accent font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 border border-accent/30 hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Knowledge Check
-              </Link>
-
-              <Link
-                href={`/flashcards/${sessionId}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  />
-                </svg>
-                Review Flashcards
-              </Link>
-
-              <Link
-                href={`/checklist/${sessionId}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 border border-white/10"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                  />
-                </svg>
-                Action Checklist
-              </Link>
-            </div>
-          )}
-
-          {!pdfUrl && (
-            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-4">
-              <p className="text-yellow-400 text-sm">
-                Unable to determine the download link. Please contact support
-                with your session ID: <code className="text-xs">{sessionId}</code>
-              </p>
-            </div>
-          )}
-        </div>
+        {/* 1-Click Upsell Component */}
+        {productSlug && (
+          <OneClickUpsell purchasedSlug={productSlug} />
+        )}
 
         {/* Back to Store */}
-        <div className="mt-8">
+        <div className="mt-12 text-center">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-text-secondary hover:text-white transition-colors font-medium"
