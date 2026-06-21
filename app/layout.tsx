@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VoiceAssistant from "@/components/VoiceAssistant";
 import FlashSaleBanner from "@/components/FlashSaleBanner";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,6 +41,7 @@ export default function RootLayout({
         <main className="flex-grow pt-16">{children}</main>
         <Footer />
         <VoiceAssistant />
+        <ExitIntentPopup />
       </body>
     </html>
   );

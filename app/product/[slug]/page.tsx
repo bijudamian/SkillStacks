@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import type { Metadata } from "next";
 import BuyButton from "@/components/BuyButton";
+import LiveVisitorCount from "@/components/LiveVisitorCount";
+import ReadingTime from "@/components/ReadingTime";
 import { products } from "@/data/products";
 import type { IProduct } from "@/types";
 
@@ -68,10 +70,12 @@ export default function ProductPage({ params }: ProductPageProps) {
 
             {/* Product Info */}
             <div className="space-y-8">
-              {/* Category Badge */}
-              <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-primary/20">
-                {product.category}
-              </span>
+              <div className="flex items-center gap-4">
+                <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-primary/20">
+                  {product.category}
+                </span>
+                <ReadingTime product={product} />
+              </div>
 
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
@@ -97,8 +101,9 @@ export default function ProductPage({ params }: ProductPageProps) {
                 {product.description}
               </p>
 
-              {/* Buy Button */}
-              <div id="buy-section">
+              {/* Buy Button & Live Count */}
+              <div id="buy-section" className="space-y-4">
+                <LiveVisitorCount />
                 <BuyButton
                   slug={product.slug}
                   price={product.price}
